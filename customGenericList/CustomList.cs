@@ -17,47 +17,77 @@ namespace customGenericList
         {
             Count = _count;
             Capacity = _capacity;
-            customList = new T[Capacity];
+            customList = new T[0];
 
         }
-        static int _count = 1;  
+        static int _count ;  
         static int _capacity;
-        public void Add(T t)
+        public void Add(T? t)
         {
-            if(Count == Capacity)
+            if(Count == Capacity && Capacity > 0)
             {
                 Capacity *= 2;
-                customList[Count - 1] = t;
+                Array.Resize(ref customList, Capacity);
+                customList[Count] = t;
                 Count++;
+                
             }else if(Count == 0)
             {
                 Capacity = 4;
-                customList[Count - 1] = t;
+                Array.Resize(ref customList, Capacity);
+                customList[Count ] = t;
                 Count++;
             }
-            else
+            else if(Count > 0 && Count <4)
             {
-                customList[Count - 1] = t;
+                Array.Resize(ref customList, Capacity);
+                customList[Count ] = t;
                 Count++;
             }
         }
 
-        public T Find(Predicate<T> condition) 
+        public T? Find(Predicate<T?> eger) 
         {
-            
+            for(int i=0;i<customList.Length;i++)
+            {
+                if (eger(customList[i]))
+                {
+                    return customList[i];
+                }
+            }
+            return default;
         }
 
-        public bool reqemdimi(string x) //Bunu Findin icinde yaziriqmis)) Sora qamma nedise onnan alasiyiq. Onnan sert alasiyiq hemen serte uygun elementi cixardasiyiq bizde
+
+        //Ugursuz cehd Find ucun
+        //public bool reqemdimi(string x) //Bunu Findin icinde yaziriqmis)) Sora qamma nedise onnan alasiyiq. Onnan sert alasiyiq hemen serte uygun elementi cixardasiyiq bizde
+        //{
+        //    decimal dec;
+        //    if(decimal.TryParse(x, out dec))
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+
+
+        public T?[] FindAll(Predicate<T?> eger) //NullReferanceException aliram
         {
-            decimal dec;
-            if(decimal.TryParse(x, out dec))
+            T[] returnList = new T[0];
+            for (int i = 0; i < customList.Length; i++)
             {
-                return true;
+                if (eger(customList[i]))
+                {
+                    Array.Resize(ref returnList, returnList.Length + 1);
+                    returnList[^1] = customList[i];
+                }
             }
-            else
-            {
-                return false;
-            }
+            return returnList;
         }
+
+
     }
 }

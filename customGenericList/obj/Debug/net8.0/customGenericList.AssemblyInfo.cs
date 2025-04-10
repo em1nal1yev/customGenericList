@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("customGenericList")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+befdefbd66b79827a8d6cea1f9730143340287f2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b35e69c059a2e34150b29f604bb69f4fde9a058e")]
 [assembly: System.Reflection.AssemblyProductAttribute("customGenericList")]
 [assembly: System.Reflection.AssemblyTitleAttribute("customGenericList")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

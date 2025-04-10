@@ -5,9 +5,11 @@
         static void Main(string[] args)
         {
             List<int> intList = new List<int>();
-            intList.Add(1);
             intList.Add(2);
-            Console.WriteLine(intList.Find(s => s % 2 == 0));
+            intList.Add(1);
+            //Console.WriteLine(intList.Find(s => s % 2 == 0));
+            Console.WriteLine(intList.Remove(1));
+            
             
 
 
@@ -16,7 +18,7 @@
             stringList.Add("Salam");
             stringList.Add("Elvin");
             Console.WriteLine(stringList.Find(x => x.StartsWith("E")));
-            // Console.WriteLine(stringList.FindAll(x => x.StartsWith("E")));
+            Console.WriteLine(stringList.FindAll(x => x.StartsWith("E")));
 
 
 

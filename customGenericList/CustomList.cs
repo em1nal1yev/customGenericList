@@ -74,10 +74,10 @@ namespace customGenericList
         //}
 
 
-        public T?[] FindAll(Predicate<T?> eger) //NullReferanceException aliram
+        public T?[] FindAll(Predicate<T?> eger) 
         {
             T[] returnList = new T[0];
-            for (int i = 0; i < customList.Length; i++)
+            for (int i = 0; i < Count; i++)
             {
                 if (eger(customList[i]))
                 {
@@ -86,6 +86,23 @@ namespace customGenericList
                 }
             }
             return returnList;
+        }
+
+        public bool Remove(T x)
+        {
+            T t;
+            for (int i = 0; i < Count; i++)
+            {
+                if (x == customList[i]) //Bu eroor girib omrumeye
+                {
+                    t = customList[Count - 1];
+                    customList[Count - 1] = customList[i];
+                    customList[i] = t;
+                    Array.Resize(ref customList, customList.Length - 1);
+                    return true;
+                }
+            }
+            return false;
         }
 
 
